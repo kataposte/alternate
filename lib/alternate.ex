@@ -13,7 +13,7 @@ defmodule Alternate do
   end
 
   defp do_localize({verb, meta, [ path, plug, plug_opts, options ]}) do
-    Enum.map(locales, fn({locale, config}) ->
+    Enum.map(locales(), fn({locale, config}) ->
         path = quote do
           translated_path = unquote(options)
                             |> Keyword.get(:translations, %{})
@@ -24,7 +24,7 @@ defmodule Alternate do
           end <> translated_path
         end
         options = quote do
-          assigns_with_locale = Map.new([{ unquote(locale_assign_key), unquote(locale) }])
+          assigns_with_locale = Map.new([{ unquote(locale_assign_key()), unquote(locale) }])
           assigns = Keyword.get(unquote(options), :assigns, %{})
                     |> Map.merge(assigns_with_locale)
           Keyword.put(unquote(options), :assigns, assigns)

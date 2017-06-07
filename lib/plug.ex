@@ -11,9 +11,9 @@ defmodule Alternate.Plug do
   def init(opts), do: opts
 
   def call(%Plug.Conn{assigns: assigns} = conn, _opts) do
-    case gettext do
+    case gettext() do
       nil -> conn
-      gettext -> case Map.get(assigns, locale_assign_key, nil) do
+      gettext -> case Map.get(assigns, locale_assign_key(), nil) do
         nil ->
           conn
         locale ->

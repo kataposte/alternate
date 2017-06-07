@@ -10,8 +10,8 @@ defmodule Alternate.Mixfile do
      docs: [extras: ["README.md"], main: "Alternate"],
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     package: package,
-     deps: deps,
+     package: package(),
+     deps: deps(),
      description: """
      A library to serve your Phoenix app in differnt locales
      """]
