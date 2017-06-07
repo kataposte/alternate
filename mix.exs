@@ -23,8 +23,8 @@ defmodule Alternate.Mixfile do
 
   defp deps do
     [
-      {:phoenix, "~> 1.1"},
-      {:gettext, "~> 0.9"},
+      {:phoenix, "~> 1.3.0-rc"},
+      {:gettext, "~> 0.11"},
       {:ex_doc, ">= 0.0.0", only: :dev}
     ]
   end
